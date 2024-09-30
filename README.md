@@ -1,6 +1,8 @@
 ## INTRO
 
-[How to debug Kubernetes Ingress? (TLS - Cert-Manager - HTTP-01 & DNS-01 Challenges)](https://www.youtube.com/watch?v=DJ2sa49iEKo)
+**super minimal and small configuration cert managers with helm chart**
+
+### INFO 
 
 - `example domen`: kube-127-0-0-1.nip.io ( research more for domen like this u can go to [nip.op](https://nip.io/))
 
@@ -17,17 +19,20 @@ a helm chart for simple setup cert manager with Issuers,ClusterIssuers,Certifica
 ### code sniuppets
 ---
 
+- from this secrets it can get certificate and private key if needed and follow his changes
+
 ```yaml
-- tls:
+  tls:
   - hosts:
-    - domen.com
-  - secretName: tls-secretName
+    - [ur_domen_name] # kube-127-0-0-1.nip.io
+    secretName: [ur_certifiacte_secret_name] # api-tls
 ```
 
-????
+- for this annotation ingress controller recognize whitch who cluster issuer him generate CSR 
+
 ```yaml
-annotation:
-  cert-manager.io/cluster-issuer: letsencrypt-issuer
+annotations:
+  cert-manager.io/cluster-issuer: [ur_cluster_issuer_from_metadata.name] # letsencrypt-issuer
 ```
 
 ---
