@@ -1,0 +1,7 @@
+apiVersion: v2
+name: cert-manager
+description: a helm chart for simple setup cert manager with Issuers,ClusterIssuers,Certificates,CertificateRequests,Orders and Challenges
+type: application
+version: 0.1.0
+appVersion: "1.16.0"
+

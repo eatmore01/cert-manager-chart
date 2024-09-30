@@ -1,0 +1,17 @@
+
+
+
+domain:
+  url: kube-127-0-0-1.nip.io
+certificate:
+  secret_name: api-tls
+
+issuer: 
+  email: 
+    value: uremail@gmail.com
+    enabled: false
+  name: letsencrypt-issuer
+  kind: ClusterIssuer
+  secret_name: lscrypt-issuer-key
+  ingress_class_name: nginx
+  letsencrypt_url: https://acme-staging-v02.api.letsencrypt.org/directory
